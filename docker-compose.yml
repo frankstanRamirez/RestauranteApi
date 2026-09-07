@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: restaurantflow_db
+    environment:
+      POSTGRES_DB: RestaurantFlowDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - restaurantflow_network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: restaurantflow_api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=RestaurantFlowDb;Username=postgres;Password=postgres"
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      - postgres
+    networks:
+      - restaurantflow_network
+
+volumes:
+  postgres_data:
+
+networks:
+  restaurantflow_network:
+    driver: bridge
