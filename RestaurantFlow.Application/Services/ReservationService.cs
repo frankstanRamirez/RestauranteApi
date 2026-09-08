@@ -4,15 +4,14 @@ using RestaurantFlow.Application.DTOs.Table;
 using RestaurantFlow.Application.Interfaces;
 using RestaurantFlow.Domain.Entities;
 using RestaurantFlow.Domain.Enums;
-using RestaurantFlow.Infrastructure.Data;
 
 namespace RestaurantFlow.Application.Services;
 
 public class ReservationService : IReservationService
 {
-    private readonly AppDbContext _context;
+    private readonly IAppDbContext _context;
 
-    public ReservationService(AppDbContext context)
+    public ReservationService(IAppDbContext context)
     {
         _context = context;
     }

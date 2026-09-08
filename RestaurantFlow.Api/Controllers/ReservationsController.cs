@@ -22,7 +22,7 @@ public class ReservationsController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener todas las reservaciones
+    /// Get all reservations
     /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetReservations()
@@ -41,7 +41,7 @@ public class ReservationsController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener reservación por ID
+    /// Get reservation by ID
     /// </summary>
     [HttpGet("{id}")]
     public async Task<IActionResult> GetReservation(int id)
@@ -64,7 +64,7 @@ public class ReservationsController : ControllerBase
     }
 
     /// <summary>
-    /// Crear nueva reservación
+    /// Create new reservation
     /// </summary>
     [HttpPost]
     public async Task<IActionResult> CreateReservation([FromBody] CreateReservationDto dto)
@@ -83,7 +83,7 @@ public class ReservationsController : ControllerBase
     }
 
     /// <summary>
-    /// Confirmar reservación
+    /// Confirm reservation
     /// </summary>
     [HttpPost("{id}/confirm")]
     public async Task<IActionResult> ConfirmReservation(int id)
@@ -106,7 +106,7 @@ public class ReservationsController : ControllerBase
     }
 
     /// <summary>
-    /// Cancelar reservación
+    /// Cancel reservation
     /// </summary>
     [HttpPost("{id}/cancel")]
     public async Task<IActionResult> CancelReservation(int id)
@@ -129,7 +129,7 @@ public class ReservationsController : ControllerBase
     }
 
     /// <summary>
-    /// Sentar cliente con reservación
+    /// Seat reservation
     /// </summary>
     [HttpPost("{id}/seat")]
     public async Task<IActionResult> SeatReservation(int id)
@@ -152,7 +152,7 @@ public class ReservationsController : ControllerBase
     }
 
     /// <summary>
-    /// Consultar disponibilidad
+    /// Check availability
     /// </summary>
     [HttpGet("availability")]
     public async Task<IActionResult> GetAvailability([FromQuery] DateTime date, [FromQuery] string startTime, [FromQuery] string endTime, [FromQuery] int numberOfPeople)

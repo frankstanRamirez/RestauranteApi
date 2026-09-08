@@ -19,7 +19,7 @@ public class KitchenController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener órdenes de cocina
+    /// Get kitchen orders
     /// </summary>
     [HttpGet("orders")]
     public async Task<IActionResult> GetKitchenOrders()

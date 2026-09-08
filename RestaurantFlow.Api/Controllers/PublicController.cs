@@ -24,7 +24,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener información del restaurante por slug
+    /// Get restaurant info by slug
     /// </summary>
     [HttpGet("{slug}")]
     public async Task<IActionResult> GetRestaurant(string slug)
@@ -55,7 +55,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener menú completo
+    /// Get complete menu
     /// </summary>
     [HttpGet("{slug}/menu")]
     public async Task<IActionResult> GetMenu(string slug)
@@ -93,7 +93,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener categorías
+    /// Get categories
     /// </summary>
     [HttpGet("{slug}/categories")]
     public async Task<IActionResult> GetCategories(string slug)
@@ -120,7 +120,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener productos
+    /// Get products
     /// </summary>
     [HttpGet("{slug}/products")]
     public async Task<IActionResult> GetProducts(string slug)
@@ -152,7 +152,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener mesas
+    /// Get tables
     /// </summary>
     [HttpGet("{slug}/tables")]
     public async Task<IActionResult> GetTables(string slug)
@@ -185,7 +185,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Consultar disponibilidad
+    /// Check availability
     /// </summary>
     [HttpGet("{slug}/availability")]
     public async Task<IActionResult> GetAvailability(string slug, [FromQuery] DateTime date, [FromQuery] string startTime, [FromQuery] string endTime, [FromQuery] int numberOfPeople)
@@ -210,7 +210,7 @@ public class PublicController : ControllerBase
     }
 
     /// <summary>
-    /// Crear reservación desde web
+    /// Create reservation from web
     /// </summary>
     [HttpPost("{slug}/reservations")]
     public async Task<IActionResult> CreateReservation(string slug, [FromBody] CreateReservationDto dto)

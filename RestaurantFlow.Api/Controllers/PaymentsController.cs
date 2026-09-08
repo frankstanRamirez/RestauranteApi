@@ -24,7 +24,7 @@ public class PaymentsController : ControllerBase
     private int GetUserId() => int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
 
     /// <summary>
-    /// Crear pago
+    /// Create payment
     /// </summary>
     [HttpPost]
     public async Task<IActionResult> CreatePayment([FromBody] CreatePaymentDto dto)
@@ -81,7 +81,7 @@ public class PaymentsController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener pago por orden
+    /// Get payment by order
     /// </summary>
     [HttpGet("order/{orderId}")]
     public async Task<IActionResult> GetPaymentByOrder(int orderId)

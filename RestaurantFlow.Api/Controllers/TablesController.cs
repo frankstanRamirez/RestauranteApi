@@ -25,7 +25,7 @@ public class TablesController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener todas las mesas
+    /// Get all tables
     /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetTables()
@@ -53,7 +53,7 @@ public class TablesController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener una mesa por ID
+    /// Get table by ID
     /// </summary>
     [HttpGet("{id}")]
     public async Task<IActionResult> GetTable(int id)
@@ -83,7 +83,7 @@ public class TablesController : ControllerBase
     }
 
     /// <summary>
-    /// Crear nueva mesa
+    /// Create new table
     /// </summary>
     [HttpPost]
     [Authorize(Roles = "ADMIN")]

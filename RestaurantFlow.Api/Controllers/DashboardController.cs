@@ -22,7 +22,7 @@ public class DashboardController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener resumen del dashboard
+    /// Get dashboard summary
     /// </summary>
     [HttpGet("summary")]
     public async Task<IActionResult> GetSummary()
@@ -94,7 +94,7 @@ public class DashboardController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener productos más vendidos
+    /// Get top products
     /// </summary>
     [HttpGet("top-products")]
     public async Task<IActionResult> GetTopProducts([FromQuery] int limit = 10)
@@ -122,7 +122,7 @@ public class DashboardController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener ventas por fecha
+    /// Get sales by date range
     /// </summary>
     [HttpGet("sales")]
     public async Task<IActionResult> GetSales([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)

@@ -22,7 +22,7 @@ public class ProductsController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener todos los productos
+    /// Get all products
     /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetProducts()
@@ -48,7 +48,7 @@ public class ProductsController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener producto por ID
+    /// Get product by ID
     /// </summary>
     [HttpGet("{id}")]
     public async Task<IActionResult> GetProduct(int id)
@@ -77,7 +77,7 @@ public class ProductsController : ControllerBase
     }
 
     /// <summary>
-    /// Crear nuevo producto
+    /// Create new product
     /// </summary>
     [HttpPost]
     [Authorize(Roles = "ADMIN")]

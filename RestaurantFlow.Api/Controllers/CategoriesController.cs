@@ -22,7 +22,7 @@ public class CategoriesController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener todas las categorías
+    /// Get all categories
     /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetCategories()
@@ -43,7 +43,7 @@ public class CategoriesController : ControllerBase
     }
 
     /// <summary>
-    /// Crear nueva categoría
+    /// Create new category
     /// </summary>
     [HttpPost]
     [Authorize(Roles = "ADMIN")]

@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using RestaurantFlow.Application.DTOs.Auth;
 using RestaurantFlow.Application.Interfaces;
-using RestaurantFlow.Infrastructure.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -12,10 +11,10 @@ namespace RestaurantFlow.Application.Services;
 
 public class AuthService : IAuthService
 {
-    private readonly AppDbContext _context;
+    private readonly IAppDbContext _context;
     private readonly IConfiguration _configuration;
 
-    public AuthService(AppDbContext context, IConfiguration configuration)
+    public AuthService(IAppDbContext context, IConfiguration configuration)
     {
         _context = context;
         _configuration = configuration;

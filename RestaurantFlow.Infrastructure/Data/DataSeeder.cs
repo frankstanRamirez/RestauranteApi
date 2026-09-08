@@ -28,52 +28,34 @@ public static class DataSeeder
         context.Restaurants.Add(restaurant);
         await context.SaveChangesAsync();
 
-        // Crear Usuarios
+        // Crear Usuarios con credenciales simples para demo
         var users = new List<User>
         {
             new User
             {
                 RestaurantId = restaurant.Id,
-                Name = "Carlos Admin",
-                Email = "admin@villaelparaiso.com",
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123!"),
+                Name = "Administrador",
+                Email = "admin",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"),
                 Role = UserRole.ADMIN,
                 IsActive = true
             },
             new User
             {
                 RestaurantId = restaurant.Id,
-                Name = "María Mesero",
-                Email = "maria@villaelparaiso.com",
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Mesero123!"),
+                Name = "Mesero Demo",
+                Email = "mesero",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("mesero123"),
                 Role = UserRole.WAITER,
                 IsActive = true
             },
             new User
             {
                 RestaurantId = restaurant.Id,
-                Name = "José Mesero",
-                Email = "jose@villaelparaiso.com",
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Mesero123!"),
-                Role = UserRole.WAITER,
-                IsActive = true
-            },
-            new User
-            {
-                RestaurantId = restaurant.Id,
-                Name = "Ana Cocina",
-                Email = "cocina@villaelparaiso.com",
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Cocina123!"),
+                Name = "Cocina Demo",
+                Email = "cocina",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("cocina123"),
                 Role = UserRole.KITCHEN,
-                IsActive = true
-            },
-            new User
-            {
-                RestaurantId = restaurant.Id,
-                Name = "Pedro Cajero",
-                Email = "cajero@villaelparaiso.com",
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Cajero123!"),
-                Role = UserRole.CASHIER,
                 IsActive = true
             }
         };

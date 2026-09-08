@@ -3,16 +3,15 @@ using RestaurantFlow.Application.DTOs.Order;
 using RestaurantFlow.Application.Interfaces;
 using RestaurantFlow.Domain.Entities;
 using RestaurantFlow.Domain.Enums;
-using RestaurantFlow.Infrastructure.Data;
 
 namespace RestaurantFlow.Application.Services;
 
 public class OrderService : IOrderService
 {
-    private readonly AppDbContext _context;
+    private readonly IAppDbContext _context;
     private readonly INotificationService _notificationService;
 
-    public OrderService(AppDbContext context, INotificationService notificationService)
+    public OrderService(IAppDbContext context, INotificationService notificationService)
     {
         _context = context;
         _notificationService = notificationService;

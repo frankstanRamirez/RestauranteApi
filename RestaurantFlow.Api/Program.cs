@@ -23,10 +23,24 @@ builder.Host.UseSerilog();
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Database
+// Database - Detecta automáticamente SQLite o SQL Server
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
+{
+    if (connectionString?.Contains("Data Source=") == true)
+    {
+        // SQLite detectado
+        options.UseSqlite(connectionString);
+    }
+    else
+    {
+        // SQL Server por defecto
+        options.UseSqlServer(connectionString);
+    }
+});
+
+// Registrar interfaz IAppDbContext
+builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 
 // Services
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -74,6 +88,9 @@ builder.Services.AddCors(options =>
 // SignalR
 builder.Services.AddSignalR();
 
+// SignalR configuration (can be disabled in appsettings.json)
+var signalREnabled = builder.Configuration.GetValue<bool>("SignalR:Enabled", false);
+
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -81,18 +98,30 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "RestaurantFlow API",
-        Version = "v1",
-        Description = "API para gestión integral de restaurantes - Demo Villa El Paraíso, Caluco"
+        Version = "v1.0",
+        Description = "REST API for comprehensive restaurant management: authentication, real-time order management, reservations, notifications, and reporting.",
+        Contact = new OpenApiContact
+        {
+            Name = "RestaurantFlow",
+            Email = "support@restaurantflow.com"
+        },
+        License = new OpenApiLicense
+        {
+            Name = "MIT License"
+        }
     });
 
     // Configurar Bearer Authentication en Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header usando el esquema Bearer. Ejemplo: \"Bearer {token}\"",
+        Description = "JWT Authorization header using the Bearer scheme. Enter your token in the field below.\n\n" +
+                      "Format: Bearer {token}\n\n" +
+                      "Example: Bearer eyJhbGciOiJIUzI1NiIs...",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        Scheme = "Bearer",
+        BearerFormat = "JWT"
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -109,6 +138,14 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+
+    // Incluir comentarios XML si existen
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        c.IncludeXmlComments(xmlPath);
+    }
 });
 
 var app = builder.Build();
@@ -119,9 +156,12 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     try
     {
-        await context.Database.MigrateAsync();
+        // Crear la base de datos si no existe
+        await context.Database.EnsureCreatedAsync();
+        
+        // Insertar datos demo
         await DataSeeder.SeedAsync(context);
-        Log.Information("Base de datos inicializada correctamente");
+        Log.Information("Base de datos inicializada correctamente con datos demo");
     }
     catch (Exception ex)
     {
@@ -130,15 +170,15 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestaurantFlow API v1");
-        c.RoutePrefix = string.Empty; // Swagger en la raíz
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestaurantFlow API v1");
+    c.RoutePrefix = "swagger";
+    c.DocumentTitle = "RestaurantFlow API";
+    c.DefaultModelsExpandDepth(-1);
+    c.DisplayRequestDuration();
+});
 
 app.UseSerilogRequestLogging();
 
@@ -152,6 +192,13 @@ app.MapControllers();
 // SignalR Hub
 app.MapHub<RestaurantHub>("/hubs/restaurant");
 
-Log.Information("RestaurantFlow API iniciada con SignalR habilitado");
+if (signalREnabled)
+{
+    Log.Information("RestaurantFlow API started with SignalR enabled");
+}
+else
+{
+    Log.Information("RestaurantFlow API started successfully");
+}
 
 app.Run();

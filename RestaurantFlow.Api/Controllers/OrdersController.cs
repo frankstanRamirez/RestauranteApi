@@ -23,7 +23,7 @@ public class OrdersController : ControllerBase
     private int GetUserId() => int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
 
     /// <summary>
-    /// Obtener todas las órdenes
+    /// Get all orders
     /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetOrders()
@@ -42,7 +42,7 @@ public class OrdersController : ControllerBase
     }
 
     /// <summary>
-    /// Obtener orden por ID
+    /// Get order by ID
     /// </summary>
     [HttpGet("{id}")]
     public async Task<IActionResult> GetOrder(int id)
@@ -65,7 +65,7 @@ public class OrdersController : ControllerBase
     }
 
     /// <summary>
-    /// Crear nueva orden
+    /// Create new order
     /// </summary>
     [HttpPost]
     [Authorize(Roles = "WAITER,ADMIN")]
@@ -87,7 +87,7 @@ public class OrdersController : ControllerBase
     }
 
     /// <summary>
-    /// Actualizar estado de orden
+    /// Update order status
     /// </summary>
     [HttpPut("{id}/status")]
     public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] UpdateOrderStatusDto dto)

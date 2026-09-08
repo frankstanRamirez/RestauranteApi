@@ -21,7 +21,7 @@ public class RestaurantsController : ControllerBase
     private int GetRestaurantId() => int.Parse(User.FindFirst("RestaurantId")?.Value ?? "0");
 
     /// <summary>
-    /// Obtener información del restaurante actual
+    /// Get current restaurant info
     /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetRestaurant()
@@ -53,7 +53,7 @@ public class RestaurantsController : ControllerBase
     }
 
     /// <summary>
-    /// Actualizar información del restaurante
+    /// Update restaurant info
     /// </summary>
     [HttpPut]
     public async Task<IActionResult> UpdateRestaurant([FromBody] RestaurantDto dto)
