@@ -1,0 +1,16 @@
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\bin\Debug\net10.0\RestaurantFlow.Application.deps.json
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\bin\Debug\net10.0\RestaurantFlow.Application.dll
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\bin\Debug\net10.0\RestaurantFlow.Application.pdb
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\bin\Debug\net10.0\RestaurantFlow.Domain.dll
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\bin\Debug\net10.0\RestaurantFlow.Domain.pdb
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.csproj.AssemblyReference.cache
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.AssemblyInfoInputs.cache
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.AssemblyInfo.cs
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.csproj.CoreCompileInputs.cache
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.sourcelink.json
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\Restaura.7975E0F3.Up2Date
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.dll
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\refint\RestaurantFlow.Application.dll
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\RestaurantFlow.Application.pdb
+C:\Users\frank\OneDrive\Escritorio\DEMOS\SistemaRestauranteApi\RestaurantFlow.Application\obj\Debug\net10.0\ref\RestaurantFlow.Application.dll

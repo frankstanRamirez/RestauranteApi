@@ -17,7 +17,7 @@ RestaurantFlow proporciona una solución backend completa para la administració
 - ✅ Notificaciones en tiempo real vía SignalR
 - ✅ Documentación interactiva con Swagger
 
-## 🏗️ Arquitectura
+##  Arquitectura
 
 El proyecto sigue Clean Architecture con 4 capas:
 
@@ -28,7 +28,7 @@ El proyecto sigue Clean Architecture con 4 capas:
 | `RestaurantFlow.Infrastructure` | EF Core, persistencia, autenticación |
 | `RestaurantFlow.Api` | Controladores HTTP, configuración |
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 - .NET 10 / ASP.NET Core
 - Entity Framework Core (SQLite / SQL Server)
@@ -42,8 +42,8 @@ El proyecto sigue Clean Architecture con 4 capas:
 
 - [.NET SDK 10.0](https://dotnet.microsoft.com/download/dotnet/10.0)
 - SQLite (desarrollo local) o SQL Server (producción)
-
-## 🚀 Inicio rápido
+  
+## Inicio rápido
 
 ```bash
 # Clonar repositorio
@@ -61,7 +61,7 @@ dotnet run
 La API estará disponible en: `https://localhost:5001`  
 Swagger estará en: `https://localhost:5001/swagger`
 
-## 🔐 Autenticación
+## Autenticación
 
 Todos los endpoints (excepto `/api/Auth/login`) requieren un token JWT.
 
@@ -215,7 +215,7 @@ Content-Type: application/json
 
 ---
 
-### 📦 **Orders Controller** - Gestión de Órdenes
+###  **Orders Controller** - Gestión de Órdenes
 
 | Método | Endpoint | Descripción | Rol |
 |--------|----------|-------------|-----|
@@ -280,7 +280,7 @@ Content-Type: application/json
 
 ---
 
-### 📅 **Reservations Controller** - Gestión de Reservaciones
+### **Reservations Controller** - Gestión de Reservaciones
 
 | Método | Endpoint | Descripción | Rol |
 |--------|----------|-------------|-----|
@@ -413,7 +413,7 @@ Content-Type: application/json
 
 ---
 
-## 🗄️ Base de Datos
+##  Base de Datos
 
 ### Seed Data Inicial
 Al iniciar, se crea automáticamente:
@@ -425,7 +425,7 @@ Al iniciar, se crea automáticamente:
 
 ---
 
-## 📖 Documentación Interactiva
+##  Documentación Interactiva
 
 Acceder a Swagger en: **https://localhost:5001/swagger**
 
@@ -437,7 +437,7 @@ Swagger permite:
 
 ---
 
-## 🐛 Códigos de Error
+##  Códigos de Error
 
 | Código | Significado |
 |--------|-----------|
@@ -455,6 +455,6 @@ Swagger permite:
 
 Para reportar bugs o sugerencias, crear un issue en el repositorio.
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto se distribuye bajo licencia MIT.

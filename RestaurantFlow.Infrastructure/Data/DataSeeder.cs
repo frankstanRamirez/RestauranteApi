@@ -35,7 +35,7 @@ public static class DataSeeder
             {
                 RestaurantId = restaurant.Id,
                 Name = "Administrador",
-                Email = "admin",
+                Email = "admin@restaurantflow.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"),
                 Role = UserRole.ADMIN,
                 IsActive = true
@@ -44,7 +44,7 @@ public static class DataSeeder
             {
                 RestaurantId = restaurant.Id,
                 Name = "Mesero Demo",
-                Email = "mesero",
+                Email = "waiter@restaurantflow.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("mesero123"),
                 Role = UserRole.WAITER,
                 IsActive = true
@@ -53,7 +53,7 @@ public static class DataSeeder
             {
                 RestaurantId = restaurant.Id,
                 Name = "Cocina Demo",
-                Email = "cocina",
+                Email = "chef@restaurantflow.com",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("cocina123"),
                 Role = UserRole.KITCHEN,
                 IsActive = true
