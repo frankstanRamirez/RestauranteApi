@@ -9,5 +9,6 @@ public class DashboardSummaryDto
     public int OrdersInKitchen { get; set; }
     public int TablesOccupied { get; set; }
     public int TablesAvailable { get; set; }
+    public int TotalTables { get; set; }
     public int ReservationsToday { get; set; }
 }

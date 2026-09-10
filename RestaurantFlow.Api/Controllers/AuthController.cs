@@ -25,6 +25,12 @@ public class AuthController : ControllerBase
     {
         try
         {
+            if (request == null)
+            {
+                _logger.LogWarning("Login attempt with null request");
+                return BadRequest(new { message = "Request body requerido" });
+            }
+
             var response = await _authService.LoginAsync(request);
             
             if (response == null)
